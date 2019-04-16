@@ -42,6 +42,11 @@ export class OrderService {
     this.breakfastClientsOrder.next(this.arr)
   }
 
+  getOtherFoodOrder(object){
+    this.arr.push(object)
+    this.othersClientsOrder.next(this.arr)
+  }
+
   addExtra(nombreDelExtra, objProducto){
     //console.log()
     this.arr = this.arr.map((e:any) => {
@@ -61,13 +66,25 @@ export class OrderService {
     this.othersClientsOrder.next(this.arr)
     console.log(this.arr)
   }
-  
 
-
-  getOtherFoodOrder(object){
-    this.arr.push(object)
+  deleteExtra(nombreDelExtra, objProducto){
+    this.arr = this.arr.map((e:any) => {
+      if(e.id=== objProducto.id) {
+        const newObj = {
+          ...e,
+          extras: [
+            ...e.extras.splice(e.extras.indexOf(nombreDelExtra), 0),
+          ]
+        }
+        return newObj
+      } else{
+        return e;
+      }
+    });
     this.othersClientsOrder.next(this.arr)
+    console.log(this.arr)
   }
+  
 
   // getTotal(){
   //   return this.object.reduce()

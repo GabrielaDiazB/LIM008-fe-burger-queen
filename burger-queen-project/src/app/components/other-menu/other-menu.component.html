@@ -1,4 +1,4 @@
-<div>
+<div class="container-box">
   <button class="menu-btn menu-caption" data-toggle="collapse" data-target="#bebidas">Bebidas</button>
   <div id="bebidas" class="collapse" *ngFor = "let drinks of drinksMenu">
     <button class="menu-btn" (click)="orderedFood(drinks)">{{drinks.nombre}}${{drinks.precio}}</button>

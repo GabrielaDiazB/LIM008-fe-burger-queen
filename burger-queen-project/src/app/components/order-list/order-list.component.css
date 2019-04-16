@@ -1,11 +1,16 @@
 .orderlist{
-    margin: 20px;
+    margin: 15px 20px;
     float: right;
     width:50%;
 }
 
+.label-name{
+    font-size: 30px;
+}
+
 .clientName{
-    width:90%;
+    width:250px;
+    margin-left:20px;
 }
 
 table{
@@ -15,9 +20,12 @@ table{
     text-align:center;
     border: 1px solid black;
 }
+th, td{
+    text-align: center;
+}
 
 .extra-checkbox{
-    width: 80%;
+    width: 80px;
 }
 
 .amount-per-food{

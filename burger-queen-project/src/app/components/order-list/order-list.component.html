@@ -4,7 +4,7 @@
   </div> -->
 
   <div>
-    <label>Nombre del cliente:</label>
+    <label class="label-name">Nombre del cliente:</label>
     <input 
       type="text" 
       placeholder="Ingresar Nombre" 
@@ -22,7 +22,7 @@
     <tbody *ngFor = "let order of orderedFood">
       <tr>
         <td>{{order.nombre}}</td>
-        <td>
+        <td >
           <label for="">Queso</label><input class="extra-checkbox" type="checkbox" [ngModel]="order.extras.includes('queso')"  #queso (change) = "checkedExtra(queso.checked, 'queso', order)">
           <label for="">Huevo</label><input class="extra-checkbox" type="checkbox" [ngModel]="order.extras.includes('huevo')" #huevo (change) = "checkedExtra(huevo.checked, 'huevo', order)">
         </td>

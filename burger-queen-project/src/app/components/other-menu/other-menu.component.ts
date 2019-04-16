@@ -34,8 +34,11 @@ export class OtherMenuComponent implements OnInit {
 
   }
 
-  orderedFood(value:string){
-    const orders = value;
+  orderedFood(value: object){
+    const orders = {
+      ...value,
+      extras: []
+    }
     this.otherFoodService.getOtherFoodOrder(orders)
   }
   

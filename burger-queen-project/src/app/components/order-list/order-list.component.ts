@@ -37,6 +37,8 @@ export class OrderListComponent implements OnInit {
     console.log(evento)
     if(evento){
       this.orderService.addExtra(extraName, order)
+    } else {
+      this.orderService.deleteExtra(extraName, order)
     }
   }
 
