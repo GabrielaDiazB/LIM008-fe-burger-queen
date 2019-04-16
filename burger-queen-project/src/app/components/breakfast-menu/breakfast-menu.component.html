@@ -1,0 +1,4 @@
+<div *ngFor = "let menu of breakfastMenu">
+  <button class="menu-btn" (click)="orderedFood(menu)">{{menu.nombre}} ${{menu.precio}}</button>
+</div>
+

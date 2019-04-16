@@ -1,0 +1,41 @@
+.orderlist{
+    margin: 20px;
+    float: right;
+    width:50%;
+}
+
+.clientName{
+    width:90%;
+}
+
+table{
+    width:100%;
+    margin-top: 40px;
+    font-size: 15px;
+    text-align:center;
+    border: 1px solid black;
+}
+
+.extra-checkbox{
+    width: 80%;
+}
+
+.amount-per-food{
+    width: 50px;
+}
+
+.delete-btn{
+    font-size: 25px;
+    color: red;
+}
+
+.send-btn{
+    float:right;
+    padding: 10px 20px;
+    border-radius: 4px;
+    border:none;
+}
+
+.send-btn:hover{
+    background-color:green;
+}

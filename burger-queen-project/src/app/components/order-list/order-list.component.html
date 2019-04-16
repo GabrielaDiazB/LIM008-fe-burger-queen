@@ -1,0 +1,38 @@
+<div class="orderlist">
+  <!-- <div>
+    <h3 class="date">{{}}</h3>
+  </div> -->
+
+  <div>
+    <label>Nombre del cliente:</label>
+    <input 
+      type="text" 
+      placeholder="Ingresar Nombre" 
+      class="clientName" #clientName 
+      (change)="nameInput(clientName.value)"
+      required/>
+  </div>
+  <table>
+    <tr>
+      <th>Item</th>
+      <th>Extras</th>
+      <th>Precio</th>
+      <th></th>
+    </tr>
+    <tbody *ngFor = "let order of orderedFood">
+      <tr>
+        <td>{{order.nombre}}</td>
+        <td>
+          <label for="">Queso</label><input class="extra-checkbox" type="checkbox" [ngModel]="order.extras.includes('queso')"  #queso (change) = "checkedExtra(queso.checked, 'queso', order)">
+          <label for="">Huevo</label><input class="extra-checkbox" type="checkbox" [ngModel]="order.extras.includes('huevo')" #huevo (change) = "checkedExtra(huevo.checked, 'huevo', order)">
+        </td>
+        <td>${{order.precio}}</td>
+        <td (click)="deleteButton(order)"><i class="fa fa-trash delete-btn"></i></td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="total-amount">
+    <h1>Total: S/. {{ Totalprice }}</h1>
+  </div>
+  <button type="button" [disabled] = "name ? false: true" class="send-btn">Enviar</button>
+</div>

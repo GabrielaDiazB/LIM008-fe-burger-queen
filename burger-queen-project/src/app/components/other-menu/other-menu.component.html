@@ -1,0 +1,16 @@
+<div>
+  <button class="menu-btn menu-caption" data-toggle="collapse" data-target="#bebidas">Bebidas</button>
+  <div id="bebidas" class="collapse" *ngFor = "let drinks of drinksMenu">
+    <button class="menu-btn" (click)="orderedFood(drinks)">{{drinks.nombre}}${{drinks.precio}}</button>
+  </div>
+
+  <button class="menu-btn menu-caption" data-toggle="collapse" data-target="#acompanamientos">Acompañamientos</button>
+  <div id="acompanamientos" class="collapse" *ngFor = "let acomp of acompMenu">
+    <button class="menu-btn" (click)="orderedFood(acomp)">{{acomp.nombre}}${{acomp.precio}}</button>
+  </div>
+
+  <button class="menu-btn menu-caption" data-toggle="collapse" data-target="#hamburguesas">Hamburgesas</button>
+  <div id="hamburguesas" class="collapse" *ngFor = "let hamburgers of hamburgersMenu">
+    <button class="menu-btn" (click)="orderedFood(hamburgers)">{{hamburgers.nombre}}${{hamburgers.precio}}</button>
+  </div>
+</div>
