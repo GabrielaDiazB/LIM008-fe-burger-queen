@@ -16,7 +16,6 @@ import { BreakfastMenuComponent } from './components/breakfast-menu/breakfast-me
 import { OtherMenuComponent } from './components/other-menu/other-menu.component';
 import { MainContainerComponent } from './components/main-container/main-container.component';
 import { OrderListComponent } from './components/order-list/order-list.component';
-import { TotalComponent } from './components/total/total.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +26,6 @@ import { TotalComponent } from './components/total/total.component';
     OtherMenuComponent,
     MainContainerComponent,
     OrderListComponent,
-    TotalComponent
   ],
   imports: [
     BrowserModule,

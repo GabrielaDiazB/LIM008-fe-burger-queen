@@ -1,38 +1,44 @@
-<div class="orderlist">
-  <!-- <div>
-    <h3 class="date">{{}}</h3>
-  </div> -->
+  <div class="orderlist">
+    <div>
+      <h3 class="date">{{date | date: 'short'}}</h3>
+    </div>
 
-  <div>
-    <label class="label-name">Nombre del cliente:</label>
-    <input 
-      type="text" 
-      placeholder="Ingresar Nombre" 
-      class="clientName" #clientName 
-      (change)="nameInput(clientName.value)"
-      required/>
-  </div>
-  <table>
-    <tr>
-      <th>Item</th>
-      <th>Extras</th>
-      <th>Precio</th>
-      <th></th>
-    </tr>
-    <tbody *ngFor = "let order of orderedFood">
+    <div>
+      <label class="label-name">Nombre del cliente:</label>
+      <input 
+        type="text" 
+        placeholder="Ingresar Nombre" 
+        class="clientName" #clientName 
+        (change)="nameInput(clientName.value)"
+        required/>
+    </div>
+
+    <table>
       <tr>
-        <td>{{order.nombre}}</td>
-        <td >
-          <label for="">Queso</label><input class="extra-checkbox" type="checkbox" [ngModel]="order.extras.includes('queso')"  #queso (change) = "checkedExtra(queso.checked, 'queso', order)">
-          <label for="">Huevo</label><input class="extra-checkbox" type="checkbox" [ngModel]="order.extras.includes('huevo')" #huevo (change) = "checkedExtra(huevo.checked, 'huevo', order)">
-        </td>
-        <td>${{order.precio}}</td>
-        <td (click)="deleteButton(order)"><i class="fa fa-trash delete-btn"></i></td>
+        <th>Item</th>
+        <th>Extras</th>
+        <th>Cantidad</th>
+        <th>Precio</th>
+        <th></th>
       </tr>
-    </tbody>
-  </table>
-  <div class="total-amount">
-    <h1>Total: S/. {{ Totalprice }}</h1>
+      <tbody *ngFor = "let order of orderedFood">
+        <tr>
+          <td>{{ order.nombre }}</td>
+          <td >
+            <label for="">Queso</label><input class="extra-checkbox" type="checkbox" [ngModel]="order.extras.includes('queso')"  #queso (change) = "checkedExtra(queso.checked, 'queso', order)">
+            <label for="">Huevo</label><input class="extra-checkbox" type="checkbox" [ngModel]="order.extras.includes('huevo')" #huevo (change) = "checkedExtra(huevo.checked, 'huevo', order)">
+          </td>
+          <td>
+            <input type="text" class="amount-per-food" [ngModel] = "order.cantidad" #cantidad (change) = "amountOfFood(order, cantidad.value)" required>
+          </td>
+          <td>${{ order.precio }}</td>
+          <td (click)="deleteButton(order.nombre)"><i class="fa fa-trash delete-btn"></i></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="total-amount">
+      <h1>Total: $ {{ total }}.00</h1>
+    </div>
+    <button type="button" class="send-btn" (click) = "sendOrderFB(date, total)">Enviar</button>
   </div>
-  <button type="button" [disabled] = "name ? false: true" class="send-btn">Enviar</button>
-</div>

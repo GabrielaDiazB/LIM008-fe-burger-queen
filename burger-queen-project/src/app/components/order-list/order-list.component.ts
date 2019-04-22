@@ -9,9 +9,10 @@ import { OrderService } from '../../services/order/order.service';
 
 export class OrderListComponent implements OnInit {
 
-  // public total: number;
+  date: any;
   name: string;
   eventCheckBox = false;
+  total: number;
 
   public orderedFood = [];
 
@@ -28,9 +29,15 @@ export class OrderListComponent implements OnInit {
       this.name = data;
     })
 
+    this.orderService.totalPrice.subscribe((price:number) => {
+      // this.total = this.orderService.getTotal();
+      return this.total = price;
+    })
+
   }
 
   ngOnInit() {
+    this.date = new Date()
   }
 
   checkedExtra(evento, extraName, order){
@@ -42,19 +49,20 @@ export class OrderListComponent implements OnInit {
     }
   }
 
-  // deleteButton(clickEvent, order){
-  //   if(clickEvent){
-  //     this.orderService.deleteExtra(order)
-  //   }
-  // }
-
-  saveOrder(clientName){
-    const data = {
+  deleteButton(nombre:string){
+      this.orderService.deleteOrder(nombre)
     }
-  }
+
+  amountOfFood(event, amount: number) {
+    this.orderService.amountFoodOrder(event, amount)
+  }  
 
   nameInput(name:string){
     const orderName = name;
-    console.log(this.orderService.getBuyerName(orderName));
+    this.orderService.getBuyerName(orderName);
+  }
+
+  sendOrderFB(date: any, total:number){
+    this.orderService.savingOrder(date, total)
   }
 }

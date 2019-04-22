@@ -8,11 +8,16 @@ import { Observable } from 'rxjs';
 export class FirestoreService {
 
   collectionMenuFb: Observable<Menu[]>;
+  public newOrder;
 
-  constructor(public menudata: AngularFirestore) { }
+  constructor(public menudata: AngularFirestore, public addorder: AngularFirestore) { }
 
   getMenu() {
     return this.collectionMenuFb = this.menudata.collection('menu').valueChanges()
+  }
+
+  saveOrderList(newOrder){
+    return this.addorder.collection('pedidos').add(newOrder)
   }
 }
 
@@ -20,5 +25,5 @@ export interface Menu{
   nombre?: string;
   precio?: number;
   tipo?: string;
-  id?: string
+  id?: string;
 }
