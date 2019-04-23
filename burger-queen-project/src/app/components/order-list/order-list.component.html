@@ -27,11 +27,19 @@
         <tr>
           <td>{{ order.nombre }}</td>
           <td >
-            <label for="">Queso</label><input class="extra-checkbox" type="checkbox" [ngModel]="order.extras.includes('queso')"  #queso (change) = "checkedExtra(queso.checked, 'queso', order)">
-            <label for="">Huevo</label><input class="extra-checkbox" type="checkbox" [ngModel]="order.extras.includes('huevo')" #huevo (change) = "checkedExtra(huevo.checked, 'huevo', order)">
+            <label for="">Queso</label>
+            <input class="extra-checkbox" type="checkbox" [ngModel]="order.extras.includes('queso')"  #queso (change) = "checkedExtra(queso.checked, 'queso', order)">
+            <label for="">Huevo</label>
+            <input class="extra-checkbox" type="checkbox" [ngModel]="order.extras.includes('huevo')" #huevo (change) = "checkedExtra(huevo.checked, 'huevo', order)">
           </td>
           <td>
-            <input type="text" class="amount-per-food" [ngModel] = "order.cantidad" #cantidad (change) = "amountOfFood(order, cantidad.value)" required>
+            <input 
+              type="text" 
+              class="amount-per-food" 
+              [ngModel] = "order.cantidad" 
+              #cantidad 
+              (change) = "amountOfFood(order, cantidad.value)" 
+              required>
           </td>
           <td>${{ order.precio }}</td>
           <td (click)="deleteButton(order.nombre)"><i class="fa fa-trash delete-btn"></i></td>
