@@ -135,7 +135,7 @@ export class OrderService {
       return (element.nombre !== name)
     })
     this.othersClientsOrder.next(this.arr)
-    // this.getTotal()
+    this.getTotal()
   }
 
   savingOrder(date:any, totalDePrecios:number){
@@ -147,6 +147,9 @@ export class OrderService {
     }
 
     this.serviceFirestore.saveOrderList(order)
+    .then(() => {
+      //setvalue()
+    })
   }
 
 }

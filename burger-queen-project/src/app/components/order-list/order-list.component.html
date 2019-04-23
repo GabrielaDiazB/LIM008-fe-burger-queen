@@ -13,14 +13,16 @@
         required/>
     </div>
 
-    <table>
-      <tr>
-        <th>Item</th>
-        <th>Extras</th>
-        <th>Cantidad</th>
-        <th>Precio</th>
-        <th></th>
-      </tr>
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Item</th>
+          <th scope="col">Extras</th>
+          <th scope="col">Cantidad</th>
+          <th scope="col">Precio</th>
+          <th scope="col"></th>
+        </tr>
+    </thead>
       <tbody *ngFor = "let order of orderedFood">
         <tr>
           <td>{{ order.nombre }}</td>
@@ -40,5 +42,5 @@
     <div class="total-amount">
       <h1>Total: $ {{ total }}.00</h1>
     </div>
-    <button type="button" class="send-btn" (click) = "sendOrderFB(date, total)">Enviar</button>
+    <button type="button" class="btn btn-success" (click) = "sendOrderFB(date, total)">Enviar</button>
   </div>

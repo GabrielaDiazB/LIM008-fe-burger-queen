@@ -1,8 +1,16 @@
-header{
-    background: darkred;
+@font-face{
+    font-family: sedanSC;
+    src: url(../../../assets/fonts/SedanSC-Regular.ttf);
 }
+
+header{
+    /* background: darkred; */
+}
+
 .logo{
     font-weight: bold;
+    /* font-family: sedanSC; */
+    font-size: 35px;
 }
 nav{
     justify-self: rigth;
@@ -22,5 +30,5 @@ nav a{
     font-size: .8em;
 }
 nav a:hover{
-    background: #8E2BFF;
+    background: rgb(187, 135, 4);
 }

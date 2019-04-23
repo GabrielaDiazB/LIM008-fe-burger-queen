@@ -63,6 +63,6 @@ export class OrderListComponent implements OnInit {
   }
 
   sendOrderFB(date: any, total:number){
-    this.orderService.savingOrder(date, total)
+    this.orderService.savingOrder(date, total);
   }
 }
